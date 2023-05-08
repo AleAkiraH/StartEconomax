@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 def fazer_requisicao():
     while True:
-        # URL da requisição
+        # URL da requisição/
         url = 'https://economax.onrender.com/login'
 
         # Corpo da requisição
@@ -65,8 +65,10 @@ def index():
     return 'API Flask em execução'
 
 if __name__ == '__main__':
+    print(1)
     # Inicia a thread em paralelo para imprimir a mensagem
     try:
+        print(2)
         thread = threading.Thread(target=fazer_requisicao)
         thread.start()
     except:
@@ -74,9 +76,11 @@ if __name__ == '__main__':
     
     # Inicia a thread em paralelo para imprimir a mensagem
     try:
+        print(3)
         thread = threading.Thread(target=fazer_requisicao_dev)
         thread.start()
     except:
+        print(4)
         print('falha ao executar fazer_requisicao_dev')
     
     # Executa a aplicação Flask
