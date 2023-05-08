@@ -64,21 +64,20 @@ def fazer_requisicao_dev():
 def index():
     return 'API Flask em execução'
 
-if __name__ == '__main__':
-    print(1)
-    # Inicia a thread em paralelo para imprimir a mensagem
-    try:
-        thread = threading.Thread(target=fazer_requisicao)
-        thread.start()
-    except:
-        print('falha ao executar fazer_requisicao')
+if __name__ == '__main__':    
+    # # Inicia a thread em paralelo para imprimir a mensagem
+    # try:
+    #     thread = threading.Thread(target=fazer_requisicao)
+    #     thread.start()
+    # except:
+    #     print('falha ao executar fazer_requisicao')
     
-    # Inicia a thread em paralelo para imprimir a mensagem
-    try:
-        thread = threading.Thread(target=fazer_requisicao_dev)
-        thread.start()
-    except:
-        print('falha ao executar fazer_requisicao_dev')
+    # # Inicia a thread em paralelo para imprimir a mensagem
+    # try:
+    #     thread = threading.Thread(target=fazer_requisicao_dev)
+    #     thread.start()
+    # except:
+    #     print('falha ao executar fazer_requisicao_dev')
     
     # Executa a aplicação Flask
     app.run()
