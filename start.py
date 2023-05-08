@@ -2,8 +2,10 @@ from flask import Flask
 import threading
 import time
 import requests 
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 def fazer_requisicao():
     while True:
@@ -64,20 +66,23 @@ def fazer_requisicao_dev():
 def index():
     return 'API Flask em execução'
 
-if __name__ == '__main__':    
-    # # Inicia a thread em paralelo para imprimir a mensagem
-    # try:
-    #     thread = threading.Thread(target=fazer_requisicao)
-    #     thread.start()
-    # except:
-    #     print('falha ao executar fazer_requisicao')
-    
-    # # Inicia a thread em paralelo para imprimir a mensagem
-    # try:
-    #     thread = threading.Thread(target=fazer_requisicao_dev)
-    #     thread.start()
-    # except:
-    #     print('falha ao executar fazer_requisicao_dev')
-    
-    # Executa a aplicação Flask
+if __name__ == '__main__':
     app.run()
+    
+# if __name__ == '__main__':    
+#     # # Inicia a thread em paralelo para imprimir a mensagem
+#     # try:
+#     #     thread = threading.Thread(target=fazer_requisicao)
+#     #     thread.start()
+#     # except:
+#     #     print('falha ao executar fazer_requisicao')
+    
+#     # # Inicia a thread em paralelo para imprimir a mensagem
+#     # try:
+#     #     thread = threading.Thread(target=fazer_requisicao_dev)
+#     #     thread.start()
+#     # except:
+#     #     print('falha ao executar fazer_requisicao_dev')
+    
+#     # Executa a aplicação Flask
+#     app.run()
