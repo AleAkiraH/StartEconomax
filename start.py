@@ -57,7 +57,7 @@ def fazer_requisicao_dev():
             # Registra o horário da requisição
             horario = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
             print(f'Requisição feita às {horario}')
-        time.sleep(270)
+        time.sleep(1)
               
 # Rota principal
 @app.route('/')
