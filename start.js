@@ -1,14 +1,13 @@
 const axios = require('axios');
-const express = require('express');
+const express = require('express';
 
-// Defina a variável quantidade
 let quantidade = 12;
 
 function fazerRequisicao(url) {
-    realizarRequisicao(url); // Executa imediatamente
+    realizarRequisicao(url);
     setInterval(() => {
         realizarRequisicao(url);
-    }, 4 * 60 * 1000 + 30 * 1000); // 4 minutos e 30 segundos em milissegundos
+    }, 1000);
 }
 
 async function realizarRequisicao(url) {
@@ -36,18 +35,13 @@ async function realizarRequisicao(url) {
     }
 }
 
-// Crie uma instância do Express
 const app = express();
 
-// Defina a rota para GET
 app.get('/', (req, res) => {
     res.send(`Quantidade: ${quantidade}`);
 });
 
-// Inicie o servidor Express
-app.listen(3000, () => {
-    console.log('Servidor iniciado na porta 3000');
-});
+module.exports = app;
 
 fazerRequisicao('https://economax.onrender.com/login');
 fazerRequisicao('https://economax-dev.onrender.com/login');
