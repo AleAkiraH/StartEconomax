@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require("express");
 const app = express();
 
@@ -18,21 +19,20 @@ async function realizarRequisicao(url) {
           senha: '14191712'
       };
 
-      const response = await axios.post(url, data);
-
+      const response = await axios.post(url, data);      
       if (response.status === 200) {
           console.log(`Requisição bem-sucedida! (${url})`);
           const horario = new Date().toISOString();
-          console.log(`Requisição feita às ${horario}`);
+          console.log(`Requisição feita às ${horario}`);          
       } else {
           console.log(`Erro na requisição. (${url})`);
           const horario = new Date().toISOString();
-          console.log(`Requisição feita às ${horario}`);
+          console.log(`Tentativa feita às ${horario}`);          
       }
   } catch (error) {
       console.log(`Erro na requisição. (${url})`);
       const horario = new Date().toISOString();
-      console.log(`Requisição feita às ${horario}`);
+      console.log(`Requisição feita às ${horario}`);    
   }
 }
 
