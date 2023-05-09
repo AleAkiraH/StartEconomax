@@ -39,7 +39,7 @@ async function realizarRequisicao(url) {
 }
 
 app.get('/', (req, res) => {
-  res.send(`Quantidade: ${quantidade/2}`);
+  res.send(`Resultado: ${ultima_execucao}`);
 });
 
 app.listen(5000, () => {
