@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-let quantidade = 12;
+let quantidade = 0;
 
 function fazerRequisicao(url) {
   realizarRequisicao(url);
@@ -10,7 +10,8 @@ function fazerRequisicao(url) {
   }, 4 * 60 * 1000 + 30 * 1000);
 }
 
-async function realizarRequisicao(url) {
+async function realizarRequisicao(url) {  
+  quantidade = quantidade + 1
   try {
       const data = {
           usuario: 'aleakirah',
@@ -36,7 +37,7 @@ async function realizarRequisicao(url) {
 }
 
 app.get('/', (req, res) => {
-  res.send(`Quantidade: ${quantidade}`);
+  res.send(`Quantidade: ${quantidade/2}`);
 });
 
 app.listen(5000, () => {
