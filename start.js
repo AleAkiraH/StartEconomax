@@ -34,8 +34,5 @@ async function realizarRequisicao(url) {
     }
 }
 
-// Verifica se está no ambiente de produção antes de iniciar as requisições
-if (process.env.NODE_ENV === 'production') {
-    fazerRequisicao('https://economax.onrender.com/login');
-    fazerRequisicao('https://economax-dev.onrender.com/login');
-}
+fazerRequisicao('https://economax.onrender.com/login');
+fazerRequisicao('https://economax-dev.onrender.com/login');
