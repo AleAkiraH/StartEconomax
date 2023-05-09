@@ -4,10 +4,14 @@ const app = express();
 
 let ultima_execucao = "";
 
-function fazerRequisicao(url) {
-  realizarRequisicao(url);
+function fazerRequisicao() {
+  realizarRequisicao('https://economax.onrender.com/login');
+  realizarRequisicao('https://economax-dev.onrender.com/login');
+  realizarRequisicao('https://start-economax2.vercel.app/')
   setInterval(() => {
-      realizarRequisicao(url);
+      realizarRequisicao('https://economax.onrender.com/login');
+      realizarRequisicao('https://economax-dev.onrender.com/login');
+      realizarRequisicao('https://start-economax2.vercel.app/')
   }, 4 * 60 * 1000 + 30 * 1000);
 }
 
@@ -48,5 +52,4 @@ app.listen(5000, () => {
 // Export the Express API
 module.exports = app;
 
-fazerRequisicao('https://economax.onrender.com/login');
-fazerRequisicao('https://economax-dev.onrender.com/login');
+fazerRequisicao();
