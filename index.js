@@ -2,7 +2,7 @@ const axios = require('axios');
 const express = require("express");
 const app = express();
 
-let quantidade = 0;
+let ultima_execucao = "";
 
 function fazerRequisicao(url) {
   realizarRequisicao(url);
@@ -12,7 +12,6 @@ function fazerRequisicao(url) {
 }
 
 async function realizarRequisicao(url) {  
-  quantidade = quantidade + 1
   try {
       const data = {
           usuario: 'aleakirah',
@@ -23,16 +22,19 @@ async function realizarRequisicao(url) {
       if (response.status === 200) {
           console.log(`Requisição bem-sucedida! (${url})`);
           const horario = new Date().toISOString();
-          console.log(`Requisição feita às ${horario}`);          
+          console.log(`Requisição feita às ${horario}`);
+          ultima_execucao = `Requisição feita com sucesso às ${horario}` 
       } else {
           console.log(`Erro na requisição. (${url})`);
           const horario = new Date().toISOString();
-          console.log(`Tentativa feita às ${horario}`);          
+          console.log(`Tentativa feita às ${horario}`);
+          ultima_execucao = `Requisição feita com falha às ${horario}`
       }
   } catch (error) {
       console.log(`Erro na requisição. (${url})`);
       const horario = new Date().toISOString();
-      console.log(`Requisição feita às ${horario}`);    
+      console.log(`Requisição feita às ${horario}`);
+      ultima_execucao = `Requisição feita com erro às ${horario}`
   }
 }
 
